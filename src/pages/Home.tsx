@@ -1,4 +1,5 @@
 import React from 'react'
+import List from '../components/List'
 
 interface HomeProps {
   // Add your prop types here
@@ -6,7 +7,9 @@ interface HomeProps {
 
 const Home: React.FC<HomeProps> = ({}) => {
   return (
-    <div>Home</div>
+    <div className='container-xxl pt-2'>
+        <List ListItemTxt={["Item 1", "Item 2", "Item 3"]}></List>
+    </div>
   )
 }
 

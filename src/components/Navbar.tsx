@@ -6,6 +6,7 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
+import ListAltIcon from '@mui/icons-material/ListAlt';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -39,9 +40,10 @@ function NavBar() {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <ListAltIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1}} />
+          {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
           <Typography
-            variant="h6"
+            variant="h5"
             noWrap
             component="a"
             href="#app-bar-with-responsive-menu"
@@ -55,7 +57,7 @@ function NavBar() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            TODO
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
