@@ -7,8 +7,12 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NoPage from './pages/NoPage.tsx';
 import Home from './pages/Home.tsx';
 import Dashboard from './pages/Dashboard.tsx';
+import { Provider } from 'react-redux';
+import { store } from './redux/store.ts';
+
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
+  <Provider store={store}>
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
@@ -20,5 +24,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         </Route>
       </Routes>
     </BrowserRouter>
-  </React.StrictMode>,
+  </React.StrictMode>
+  </Provider>
+  ,
 )
