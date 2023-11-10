@@ -37,7 +37,7 @@ function NavBar() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="fixed">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <ListAltIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1}} />
