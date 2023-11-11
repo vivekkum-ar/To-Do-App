@@ -1,13 +1,13 @@
 import React from 'react'
 
-interface DashboardProps {
+interface CompletedProps {
   // Add your prop types here
 }
 
-const Dashboard: React.FC<DashboardProps> = ({}) => {
+const Completed: React.FC<CompletedProps> = ({}) => {
   return (
-    <div>Dashboard</div>
+    <div>Completed</div>
   )
 }
 
-export default Dashboard
+export default Completed
