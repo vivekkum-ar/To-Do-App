@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import List from '../components/List';
-import { Button, TextField } from '@mui/material';
+import { Button, Snackbar, TextField } from '@mui/material';
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '../redux/store'; // Import RootState and AppDispatch types
@@ -10,13 +10,23 @@ interface HomeProps {}
 
 const Home: React.FC<HomeProps> = () => {
   const [todoText, setTodoText] = useState('');
-  const todos = useSelector((state: RootState) => state.todos.todos); // Select todos from the correct slice
+  const [openAdd, setopenAdd] = useState(false);
+  useEffect(() => {
+    setTimeout(() => {
+      setopenAdd(false);
+    }, 3000);
+  
+  }, [openAdd]);
+//   const todos = useSelector((state: RootState) => state.todos.todos); // Select todos from the correct slice
+  const todos = useSelector((state: RootState) => state.todos.todos.filter(todo => !todo.completed)); // Select only incomplete todos
+
   const dispatch = useDispatch<AppDispatch>(); // Dispatch type is inferred from AppDispatch
 
   const handleAddTodo = () => {
     if (todoText.trim() !== '') {
       dispatch(addTodoFromText(todoText)); // Dispatch addTodo action with the todo text
-    //   setTodoText(''); // Clear the input after adding todo
+      setTodoText(''); // Clear the input after adding todo
+        setopenAdd(true);
     }
   };
 
@@ -36,6 +46,13 @@ const Home: React.FC<HomeProps> = () => {
         </Button>
       </div>
       <List ListItemTxt={todos} />
+      <Snackbar
+        anchorOrigin={{vertical: "bottom", horizontal: "right"}}
+        open={openAdd}
+        // onClose={handleClose}
+        message="Added todo to list!"
+        key={"Added"}
+      />
     </div>
   );
 };
